@@ -1,0 +1,42 @@
+GET http://localhost:8000/api/v1/video/ HTTP/1.1
+
+
+
+###
+//create
+POST http://localhost:8000/api/v1/video HTTP/1.1
+
+Content-Type: application/json
+
+# {
+#     "title": "We the world",
+#     "short_descript": "the world ruled by us",
+#     "descript": "Music by harley i need you now and their people",
+#     "cat_id": 13,
+#     "vidtype_id": 5,
+#     "user_id": 1,
+#     "video": " need you right now (Harley Quinn-Joker) Final Cut!.mp4"
+# }
+
+
+###
+//delete
+DELETE http://localhost:8000/api/v1/video/18 HTTP/1.1
+
+
+###
+//upadate
+PUT http://localhost:8000/api/v1/video/16 HTTP/1.1
+
+{
+    "title": "We agsjhdgasjgd the world",   
+    "short_descript": "the world ruled by us",
+    "descript": "Music by harley i need you now and their people",
+    "cat_id": 13,
+    "vidtype_id": 5,
+    "user_id": 1,
+    "video": " need you right now (Harley Quinn-Joker) Final Cut!.mp4"
+}
+
+###
+GET http://localhost:8000/api/v1/video/search/the HTTP/1.1

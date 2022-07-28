@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\VideoApiController;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+Route::get('/video/{id?}', [VideoApiController::class, 'index']); // ? = creates optional id
+Route::post('/video', [VideoApiController::class, 'create']);
+Route::delete('/video/{video}', [VideoApiController::class, 'delete']);
+Route::put('/video/{video}', [VideoApiController::class, 'update']);
+
+
+Route::get('/video/search/{search}', [VideoApiController::class, 'search']);
