@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\VideoApiController;
-use App\Models\Video;
+use App\Http\Controllers\AllController;
+use App\Http\Controllers\dummyApiController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,11 +22,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+Route::apiResource('/videos', dummyApiController::class);
+Route::get('/video/{id?}', [AllController::class, 'index']);
+Route::get('/video/search/{search}', [AllController::class, 'search']);
+Route::get('/video/category', [AllController::class, 'retrieveCategory']);
 
-Route::get('/video/{id?}', [VideoApiController::class, 'index']); // ? = creates optional id
-Route::post('/video', [VideoApiController::class, 'create']);
-Route::delete('/video/{video}', [VideoApiController::class, 'delete']);
-Route::put('/video/{video}', [VideoApiController::class, 'update']);
 
+// Route::group(['middleware' => 'auth:sanctum'], function () {
 
-Route::get('/video/search/{search}', [VideoApiController::class, 'search']);
+// });
+
